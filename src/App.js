@@ -13,7 +13,7 @@ let url;
 if (process.env.NODE_ENV === 'development') {
   url = 'http://localhost:5000/api';
 } else {
-  url = 'https://api.tablebook.ge/api';
+  url = 'https://payappback.onrender.com/api';
 }
 
 axios.defaults.baseURL = url;

@@ -31,7 +31,7 @@ const ProtectedRoute = ({ children }) => {
   }, [pathname]);
 
   useEffect(() => {
-    if (!loading && !profile) {
+    if ((!loading && !profile) || !localStorage.getItem('token')) {
       navigate('/auth/loginformik');
     }
   }, [loading, profile]);
