@@ -15,21 +15,21 @@ const ProfileDD = () => {
         <img src={user1} alt="user" className="rounded-circle" width="60" />
         <span>
           {/* <h6 className="mb-0">John Deo</h6> */}
-          <small>{profileReducer?.profile?.email}</small>
+          <small>Admin</small>
         </span>
       </div>
-      <Link to="/apps/bookings">
+      {/* <Link to="/apps/bookings">
         <DropdownItem className="px-4 py-3">
           <Icon.BookOpen />
           &nbsp; ჯავშნები
         </DropdownItem>
-      </Link>
-      <Link to="/apps/specialOffer">
+      </Link> */}
+      {/* <Link to="/apps/specialOffer">
         <DropdownItem className="px-4 py-3">
           <Icon.Award />
           &nbsp; სპეციალური შეთავაზება
         </DropdownItem>
-      </Link>
+      </Link> */}
       {/* <DropdownItem className="px-4 py-3">
         <Icon.FileText />
         &nbsp; სავიზიტო გვერდი
@@ -40,12 +40,12 @@ const ProfileDD = () => {
       </DropdownItem> */}
       <DropdownItem divider />
 
-      <Link to="/apps/settings">
+      {/* <Link to="/apps/settings">
         <DropdownItem className="px-4 py-3">
           <Settings size={20} />
           &nbsp; პარამეტრები
         </DropdownItem>
-      </Link>
+      </Link> */}
       <DropdownItem divider />
     </div>
   );

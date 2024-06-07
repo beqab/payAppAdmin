@@ -127,7 +127,7 @@ const ThemeRoutes = [
     element: <FullLayout />,
     id: 'rootLoader',
     children: [
-      { path: '/', name: 'Home', element: <Navigate to="/apps/about" /> },
+      { path: '/', name: 'Home', element: <Navigate to="/apps/counties" /> },
       {
         path: '/apps/about',
         name: 'დაწესებულების პროფილი',
@@ -164,6 +164,15 @@ const ThemeRoutes = [
         element: (
           <ProtectedRoute>
             <Bookings />{' '}
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/apps/faqEdit',
+        name: 'faqEdit',
+        element: (
+          <ProtectedRoute>
+            <>there will be faqEdit page</>
           </ProtectedRoute>
         ),
       },

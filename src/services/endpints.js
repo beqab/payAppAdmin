@@ -1,7 +1,9 @@
 const Endpoints = {
+  signIn: () => '/admin/login',
+  getCountries: '/countries',
+  updateCountries: '/countries',
   auth: () => `/restaurant/register`,
   uploadImage: '/restaurant/profile/uploadImage',
-  signIn: () => '/admin/login',
   mailConfirmation: '/restaurant/confirmemail',
   resendEmailVerification: () => '/restaurant/resendMailConfirmation',
   recoverPassword: `/restaurant/recoverPassword`,

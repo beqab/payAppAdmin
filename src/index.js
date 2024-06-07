@@ -4,6 +4,8 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import reportWebVitals from './reportWebVitals';
 import { store } from './store/Store';
 import App from './App';
@@ -12,11 +14,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+const queryClient = new QueryClient();
 
 root.render(
   <Provider store={store}>
     {/* <BrowserRouter> */}
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
     {/* </BrowserRouter> */}
   </Provider>,
 );

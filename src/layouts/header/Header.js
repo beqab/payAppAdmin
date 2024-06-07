@@ -161,7 +161,7 @@ const Header = () => {
             <div className="p-2 px-3">
               <form action="/logout" method="get">
                 <Button onClick={handleLogOut} color="danger" size="sm">
-                  გამოსვლა
+                  Log Out
                 </Button>
               </form>
             </div>

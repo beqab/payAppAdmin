@@ -10,13 +10,13 @@ const BreadCrumbs = () => {
   return (
     <>
       <h4 className="text-capitalize">{secondUrl ? `${secondUrl}` : `${firstUrl}`}</h4>
-      <Breadcrumb>
+      {/* <Breadcrumb>
         <BreadcrumbItem to="/" tag={Link} className="text-decoration-none">
           Home
         </BreadcrumbItem>
         {firstUrl ? <BreadcrumbItem active>{firstUrl}</BreadcrumbItem> : ''}
         {secondUrl ? <BreadcrumbItem active>{secondUrl}</BreadcrumbItem> : ''}
-      </Breadcrumb>
+      </Breadcrumb> */}
     </>
   );
 };
