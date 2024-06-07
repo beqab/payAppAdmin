@@ -20,8 +20,8 @@ const LoginFormik = () => {
   const [searchParams] = useSearchParams();
 
   const validationSchema = Yup.object().shape({
-    userName: Yup.string().required('userName აუცილებელია'),
-    password: Yup.string().required('პაროლი აუცილებელია'),
+    userName: Yup.string().required('userName is require'),
+    password: Yup.string().required('Password is require'),
   });
 
   const submitForm = async (fields, { setSubmitting, setErrors }) => {
@@ -74,7 +74,7 @@ const LoginFormik = () => {
                   render={({ errors, touched }) => (
                     <Form>
                       <FormGroup>
-                        <Label htmlFor="userName">ელ-ფოსტა</Label>
+                        <Label htmlFor="userName">UserName</Label>
                         <Field
                           name="userName"
                           type="text"
@@ -85,7 +85,7 @@ const LoginFormik = () => {
                         <ErrorMessage name="email" component="div" className="invalid-feedback" />
                       </FormGroup>
                       <FormGroup>
-                        <Label htmlFor="password">პაროლი</Label>
+                        <Label htmlFor="password">Password</Label>
                         <Field
                           name="password"
                           type="password"
@@ -102,7 +102,7 @@ const LoginFormik = () => {
 
                       <FormGroup>
                         <Button type="submit" color="primary" disabled={loading} className="me-2">
-                          {loading ? 'იგზავნება...' : 'შესვლა'}
+                          {loading ? 'sending...' : 'Log In'}
                         </Button>
                       </FormGroup>
                     </Form>
