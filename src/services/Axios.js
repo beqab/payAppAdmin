@@ -8,7 +8,7 @@ let baseUrl;
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:5000/api';
 } else {
-  baseUrl = 'https://api.tablebook.ge/api';
+  baseUrl = 'https://payappback.onrender.com/api';
 }
 
 const getAuthToken = () => {
