@@ -1,0 +1,13 @@
+.createRestaurant_buttons {
+}
+
+@media (max-width: 767px) {
+  .createRestaurant_buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    button {
+      margin: 0 !important;
+    }
+  }
+}

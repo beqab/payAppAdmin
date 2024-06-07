@@ -1,0 +1,13 @@
+.noteText {
+  width: 263px;
+}
+
+.offerContainer .showLeftPart {
+  max-width: calc(100% - 50px);
+}
+
+@media (max-width: 767px) {
+  .addOfferBtn_wrapper {
+    padding-right: 5px !important;
+  }
+}
