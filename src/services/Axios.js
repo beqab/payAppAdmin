@@ -16,14 +16,11 @@ const getAuthToken = () => {
   return authToken;
 };
 
-const token = getAuthToken();
-
 const Axios = axios.create({
   baseURL: baseUrl,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
-    // Add any other custom headers you need
+    // Authorization header will be dynamically added in the request interceptor
   },
 });
 

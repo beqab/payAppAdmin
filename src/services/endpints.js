@@ -1,5 +1,6 @@
 const Endpoints = {
   signIn: () => '/admin/login',
+  getAdminProfile: '/admin/profile',
   getCountries: '/countries',
   updateCountries: '/countries',
   auth: () => `/restaurant/register`,

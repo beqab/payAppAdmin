@@ -23,8 +23,8 @@ function onAfterDeleteRow(rowKeys) {
 
 // This is for the Search item
 function afterSearch(searchText, result) {
-  console.log(`Your search text is ${searchText}`);
-  console.log('Result is:');
+  // console.log(`Your search text is ${searchText}`);
+  // console.log('Result is:');
   for (let i = 0; i < result.length; i++) {
     console.log(`Fruit: ${result[i].id}, ${result[i].name}, ${result[i].price}`);
   }
@@ -62,7 +62,7 @@ const Datatables = () => {
 
   // Handler for button click
   const handleButtonClick = (row) => {
-    console.log(row);
+    // console.log(row);
 
     const userConfirmed = window.confirm(
       `Are you sure you want to change the status for: ${row.country}?`,
@@ -75,7 +75,7 @@ const Datatables = () => {
   };
   // Custom button cell renderer
   const buttonFormatter = (cell, row) => {
-    console.log(row, 'rrrr');
+    // console.log(row, 'rrrr');
     return (
       <button
         type="button"
@@ -117,7 +117,7 @@ const Datatables = () => {
                 dataField="flag"
                 isKey
                 dataFormat={(cell, row) => {
-                  console.log(cell, row, 'ttttt');
+                  // console.log(cell, row, 'ttttt');
                   return <img width={30} src={cell} alt="" />;
                 }}
               >
@@ -135,7 +135,7 @@ const Datatables = () => {
                 dataSort
                 sortIndicator
                 dataFormat={(cell, row) => {
-                  console.log(cell, row, 'ttttt');
+                  // console.log(cell, row, 'ttttt');
                   return (
                     <span
                       className={classNames('badge ', {

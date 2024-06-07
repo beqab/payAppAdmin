@@ -1,7 +1,7 @@
 import * as Icon from 'react-feather';
 
 const SidebarData = [
-  { caption: '' },
+  { caption: '', id: 21 },
   // {
   //   title: 'ჯავშნები',
   //   href: '/apps/bookings',
@@ -13,14 +13,14 @@ const SidebarData = [
     title: 'Countries',
     href: '/apps/counties',
     icon: <Icon.Flag />,
-    id: 23.1,
+    id: 23,
     collapisble: false,
   },
   {
     title: 'Faq Edit',
     href: '/apps/faqEdit',
     icon: <Icon.Edit />,
-    id: 23.1,
+    id: 24,
     collapisble: false,
   },
   // {

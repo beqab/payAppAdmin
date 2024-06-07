@@ -41,7 +41,7 @@ const Sidebar = () => {
             {SidebarData.map((navi) => {
               if (navi.caption) {
                 return (
-                  <div className="navCaption fw-bold mt-4" key={navi.caption}>
+                  <div className="navCaption fw-bold mt-4" key={navi.id}>
                     {navi.caption}
                   </div>
                 );

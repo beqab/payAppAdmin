@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Endpoints from '../../services/endpints';
 import { getCurrentUser } from '../../store/profile/profileSlice';
+import useAxiosInterceptors from '../../services/utils/useAxiosInterceptors';
 
 // let url;
 
@@ -17,6 +18,7 @@ import { getCurrentUser } from '../../store/profile/profileSlice';
 // axios.defaults.baseURL = url;
 
 const ProtectedRoute = ({ children }) => {
+  useAxiosInterceptors();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
