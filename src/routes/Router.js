@@ -14,6 +14,7 @@ const FullLayout = Loadable(lazy(() => import('../layouts/FullLayout')));
 const BlankLayout = Loadable(lazy(() => import('../layouts/BlankLayout')));
 /***** Pages payApp ****/
 const CountriesPage = Loadable(lazy(() => import('../views/payApp/countries')));
+const FaqPage = Loadable(lazy(() => import('../views/payApp/faqEdit')));
 
 /***** Pages ****/
 
@@ -172,7 +173,7 @@ const ThemeRoutes = [
         name: 'faqEdit',
         element: (
           <ProtectedRoute>
-            <>there will be faqEdit page</>
+            <FaqPage />
           </ProtectedRoute>
         ),
       },
