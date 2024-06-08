@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
 
-import { toast } from 'react-toastify';
 import { Alert, Button, Col, Row } from 'reactstrap';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import ComponentCard from '../../../components/ComponentCard';
 import EditFaqModal from './components/editFaqModal';
+import useDeleteFaq from './hooks/useDeleteFaq';
 import useFaq from './hooks/useFaq';
 import useGetHighestIndex from './hooks/useGetHighestIndex';
-import Axios from '../../../services/Axios';
-import Endpoints from '../../../services/endpints';
 
 const BasicForm = () => {
   const [composeModal, setComposeModal] = useState(null);
-  const queryClient = useQueryClient();
+
+  const { data } = useFaq();
+
+  const highestIndex = useGetHighestIndex(data, 'index');
+
+  const deleteFaq = useDeleteFaq();
+
+  const HandleDelete = (id) => {
+    const userConfirmed = window.confirm(`Are you sure you want to delete?`);
+
+    if (userConfirmed) {
+      deleteFaq.mutate(id);
+    }
+  };
 
   const toggle = (id = null) => {
     if (composeModal) {
@@ -23,35 +33,6 @@ const BasicForm = () => {
     }
   };
 
-  const { data } = useFaq();
-
-  const highestIndex = useGetHighestIndex(data, 'index');
-
-  const deleteFaq = useMutation({
-    mutationFn: (id) => {
-      return Axios.delete(Endpoints.editFaq, {
-        params: {
-          id,
-        },
-      }).then((res) => res.data);
-    },
-    onSuccess: () => {
-      toast.success('successfully deleted!');
-
-      queryClient.invalidateQueries({ queryKey: ['faq'] });
-    },
-  });
-
-  const HandleDelete = (id) => {
-    // console.log(row);
-
-    const userConfirmed = window.confirm(`Are you sure you want to delete?`);
-
-    if (userConfirmed) {
-      deleteFaq.mutate(id);
-    }
-    // updateCountriesStatus.mutate({ countryId: row._id, status: !row.allowed });
-  };
   return (
     <div>
       <h4 className="text-capitalize">FAQ Edit</h4>

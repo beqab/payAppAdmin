@@ -13,6 +13,7 @@ import ComponentCard from './components/ComponentCard';
 import Endpoints from '../../../services/endpints';
 import useCountries from './hooks/useCounties';
 import Axios from '../../../services/Axios';
+import useUpdateCountriesStatus from './hooks/useUpdateCountriesStatus';
 // import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
 // This is for the Delete row
@@ -47,20 +48,8 @@ const cellEditProp = {
 
 const Datatables = () => {
   const { data: countriesData, error, isLoading } = useCountries();
-  const queryClient = useQueryClient();
+  const updateCountriesStatus = useUpdateCountriesStatus();
 
-  const updateCountriesStatus = useMutation({
-    mutationFn: (requestData) => {
-      return Axios.post(Endpoints.updateCountries, requestData).then((res) => res.data);
-    },
-    onSuccess: () => {
-      toast.success('updated successfully!');
-
-      queryClient.invalidateQueries({ queryKey: ['countries'] });
-    },
-  });
-
-  // Handler for button click
   const handleButtonClick = (row) => {
     // console.log(row);
 

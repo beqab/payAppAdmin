@@ -1,10 +1,6 @@
-import { useMemo } from 'react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Field, Form, Formik } from 'formik';
-import { toast } from 'react-toastify';
 import { Button, FormGroup, Label, Modal, ModalBody, ModalHeader } from 'reactstrap';
-import Endpoints from '../../../../services/endpints';
-import Axios from '../../../../services/Axios';
+import useAddEditFaq from '../hooks/useAddEditFaq';
 
 const EditFaqModal = ({ composeModal, toggle, index }) => {
   const initialValues = {
@@ -15,18 +11,8 @@ const EditFaqModal = ({ composeModal, toggle, index }) => {
   };
 
   const isAddNew = composeModal === 'add';
-  const queryClient = useQueryClient();
 
-  const updateQuestion = useMutation({
-    mutationFn: (requestData) => {
-      return Axios.post(Endpoints.editFaq, requestData).then((res) => res.data);
-    },
-    onSuccess: () => {
-      toast.success('updated successfully!');
-      toggle(null);
-      queryClient.invalidateQueries({ queryKey: ['faq'] });
-    },
-  });
+  const updateQuestion = useAddEditFaq(() => toggle(null));
 
   const handleSubmit = (fields) => {
     updateQuestion.mutate({ ...fields, index, _id: composeModal?._id });
