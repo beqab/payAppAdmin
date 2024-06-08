@@ -106,7 +106,7 @@ const Datatables = () => {
               data={countriesData}
               // deleteRow
               // selectRow={selectRowProp}
-              pagination
+              // pagination
               // insertRow
               options={options}
               // cellEdit={cellEditProp}
