@@ -58,9 +58,9 @@ const Datatables = () => {
     );
 
     if (userConfirmed) {
-      updateCountriesStatus.mutate({ countryId: row._id, status: !row.allowed });
+      updateCountriesStatus.mutate({ countryId: row._id, status: !row.show });
     }
-    // updateCountriesStatus.mutate({ countryId: row._id, status: !row.allowed });
+    // updateCountriesStatus.mutate({ countryId: row._id, status: !row.show });
   };
   // Custom button cell renderer
   const buttonFormatter = (cell, row) => {
@@ -70,11 +70,11 @@ const Datatables = () => {
         type="button"
         onClick={() => handleButtonClick(row)}
         className={classNames('btn  btn-sm', {
-          'btn-warning ': !row.allowed,
-          'btn-primary': row.allowed,
+          'btn-warning ': !row.show,
+          'btn-primary': row.show,
         })}
       >
-        {row.allowed ? 'Deactivate Country' : 'Activate Country'}
+        {row.show ? 'Deactivate Country' : 'Activate Country'}
       </button>
     );
   };
@@ -99,11 +99,12 @@ const Datatables = () => {
               // insertRow
               options={options}
               // cellEdit={cellEditProp}
+
               tableHeaderClass="mb-0"
             >
               <TableHeaderColumn
                 width="100"
-                dataField="flag"
+                dataField="image"
                 isKey
                 dataFormat={(cell, row) => {
                   // console.log(cell, row, 'ttttt');
@@ -112,15 +113,15 @@ const Datatables = () => {
               >
                 Flag
               </TableHeaderColumn>
-              <TableHeaderColumn width="100" dataField="country">
+              <TableHeaderColumn width="160" dataField="countryEn">
                 Name
               </TableHeaderColumn>
-              <TableHeaderColumn width="100" dataField="code">
+              {/* <TableHeaderColumn width="100" dataField="code">
                 Code
-              </TableHeaderColumn>
+              </TableHeaderColumn> */}
               <TableHeaderColumn
                 width="100"
-                dataField="allowed"
+                dataField="show"
                 dataSort
                 sortIndicator
                 dataFormat={(cell, row) => {
@@ -128,11 +129,11 @@ const Datatables = () => {
                   return (
                     <span
                       className={classNames('badge ', {
-                        'bg-danger': row.allowed,
-                        'bg-success': !row.allowed,
+                        'bg-danger': row.show,
+                        'bg-success': !row.show,
                       })}
                     >
-                      {row.allowed ? 'active' : 'inactive'}
+                      {row.show ? 'active' : 'inactive'}
                     </span>
                   );
                 }}
